@@ -1,0 +1,34 @@
+{
+  "name": "hr.assistant",
+  "version": "1.0.0",
+  "description": "HR-Assistant AI CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^4",
+    "sqlite3": "^6.0.1",
+    "@sap/cds-hana": "^2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "sqlite.db"
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@sap/cds": "^7.9.5",
+    "@sap/cds-dk": "^7.9.10",
+    "node": "^20.20.2"
+  }
+}
