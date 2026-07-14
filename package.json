@@ -15,14 +15,21 @@
   "scripts": {
     "start": "cds-serve"
   },
- "cds": {
-  "requires": {
-    "db": "sqlite",
-    "[production]": {
-      "db": "hana"
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      },
+      "[production]": {
+        "db": {
+          "kind": "hana"
+        }
+      }
     }
-  }
-},
+  },
   "devDependencies": {
     "@sap/cds": "^10.0.3",
     "@sap/cds-dk": "^10.0.4",

@@ -1,5 +1,5 @@
 _schema-version: '3.1'
-ID: hr.assistant
+ID: hr-assistant
 version: 1.0.0
 description: "HR-Assistant AI CAP project."
 parameters:
@@ -8,10 +8,10 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm ci
-        - node_modules/.bin/cds build --production
+        - npm install --production
+        - npx cds build --production
 modules:
-  - name: hr.assistant-srv
+  - name: hr-assistant-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -21,22 +21,22 @@ modules:
     build-parameters:
       builder: npm
     provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+      - name: srv-api
         properties:
           srv-url: ${default-url}
     requires:
-      - name: hr.assistant-db
+      - name: hr-assistant-db
 
-  - name: hr.assistant-db-deployer
+  - name: hr-assistant-db-deployer
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: hr.assistant-db
-
+      - name: hr-assistant-db
+      
 resources:
-  - name: hr.assistant-db
+  - name: hr-assistant-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
