@@ -6,29 +6,26 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^3.0.1",
+    "@cap-js/sqlite": "^3.0.2",
+    "@sap/xssec": "^4.13.3",
     "express": "^4",
-    "sqlite3": "^6.0.1",
-    "@sap/cds-hana": "^2"
+    "sqlite3": "^6.0.1"
   },
   "scripts": {
     "start": "cds-serve"
   },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "sqlite.db"
-        },
-        "[production]": {
-          "kind": "hana"
-        }
-      }
+ "cds": {
+  "requires": {
+    "db": "sqlite",
+    "[production]": {
+      "db": "hana"
     }
-  },
+  }
+},
   "devDependencies": {
-    "@sap/cds": "^7.9.5",
-    "@sap/cds-dk": "^7.9.10",
+    "@sap/cds": "^10.0.3",
+    "@sap/cds-dk": "^10.0.4",
     "node": "^20.20.2"
   }
 }
