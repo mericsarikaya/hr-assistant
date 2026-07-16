@@ -42,10 +42,14 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
-
+      config:
+        database_id: database-hr-assitant
   - name: hr-assistant-uaa
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
+      config:
+        xsappname: hr-assistant-${org}-${space}
+        tenant-mode: dedicated
