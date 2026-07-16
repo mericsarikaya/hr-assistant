@@ -8,7 +8,7 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm install --production
+        - npm install
         - npx cds build --production
 modules:
   - name: hr-assistant-srv
@@ -26,6 +26,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: hr-assistant-db
+      - name: hr-assistant-uaa
 
   - name: hr-assistant-db-deployer
     type: hdb
@@ -41,3 +42,10 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+
+  - name: hr-assistant-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
