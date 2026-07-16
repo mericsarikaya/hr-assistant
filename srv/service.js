@@ -33,3 +33,13 @@ module.exports = class EmployeeService extends cds.ApplicationService {
         return super.init();
     }
 };
+
+module.exports = (srv) => {
+  srv.before('READ', (req) => {
+    console.log('--- YENİ BİR İSTEK GELDİ ---');
+    console.log('İsteği Yapan Kullanıcı:', req.user.id);
+    console.log('Sahip Olduğu Roller:', req.user._roles);
+    console.log('Admin Yetkisi Var mı?:', req.user.is('admin'));
+    console.log('----------------------------');
+  });
+};

@@ -1,8 +1,0 @@
-POST http://localhost:4004/odata/v4/hr/Employees
-Content-Type: application/json
-
-{
-  "ID": "123e4567-e89b-12d3-a456-426614174000",
-  "fullName": "Meriç Sarıkaya",
-  "role": "SAP Intern"
-}

@@ -1,0 +1,27 @@
+name: CAP CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Kodu İndir (Checkout)
+      uses: actions/checkout@v4
+
+    - name: Node.js Kurulumu
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+        cache: 'npm'
+
+    - name: Kütüphaneleri Yükle
+      run: npm ci
+
+    - name: Projeyi Derle (Test)
+      run: npx cds build
