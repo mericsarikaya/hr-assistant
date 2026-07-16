@@ -30,6 +30,7 @@ annotate HRService.LeaveRequests with @(
   UI.LineItem: [
     { Value: startDate, Label: 'Başlangıç Tarihi' },
     { Value: endDate,   Label: 'Bitiş Tarihi' },
-    { Value: status,    Label: 'Durum' }
+    { Value: status,    Label: 'Durum' },
+    { $Type: 'UI.DataFieldForAction', Action: 'HRService.cancel', Label: 'İptal Et' }
   ]
 );
