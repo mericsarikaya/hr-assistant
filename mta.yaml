@@ -1,5 +1,5 @@
 _schema-version: '3.1'
-ID: hr-assistant
+ID: database-hr-assitant
 version: 1.0.0
 description: "HR-Assistant AI CAP project."
 parameters:
