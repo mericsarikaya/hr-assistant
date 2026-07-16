@@ -10,7 +10,8 @@ entity Employees:cuid {
   fullName      : String(100);
   role          : String(100);
   department    : Association to Departments;
-  leaves        : Association to many LeaveRequests on leaves.employee = $self;
+  leaves        : Composition of many LeaveRequests on leaves.employee = $self;
+  leaveBalance  : Integer default 14;
 }
 
 entity LeaveRequests: cuid{
@@ -18,4 +19,5 @@ entity LeaveRequests: cuid{
   startDate     : Date;
   endDate       : Date;
   status        : String(20); 
+  cancelledAt   : DateTime;
 }
